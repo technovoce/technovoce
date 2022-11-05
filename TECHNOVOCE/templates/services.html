@@ -1,1 +1,20 @@
 {% extends 'index.html' %}
+
+{% block maincontent %}
+<article>
+<h2>Our Services</h2>
+<h3>Live Sound</h3>
+<p>Our main service is providing sound technicians for venues and performers who want a professional sound tailored to their requirements.
+From poetry jams to 'Rat Pack' shows, we have the experience to give your audience exactly the sound you want.</p>
+<h3>Recording and Production</h3>
+<p>Our recording services focus on spoken word application, like audiobooks, podcasts and radio plays. We can provide any level of service from simple one-off recordings to fully produced shows with music and foley work.
+We handle the technical side so you can let your creativity flow!</p>
+<h3>Consultancy and Installations</h3>
+<p>Targeted at venues of any size, we can provide advice and support when you decide to install or replace in-house sound and lighting systems.
+Why guess what you need? We can take the stress out of decision making, and have the industry contacts to help you plan, manage, and complete your installation projects.</p>
+<h3>Anything Else?</h3>
+<p>We're happy to help out with other jobs that require technical expertise and an understanding of sound, like acoustic testing and noise surveys.
+If you're looking for friendly and helpful staff with good technical knowledge, why not drop us a line and disucss your requirements.</p>
+<p>Whatever service you're looking for, feel free to <a href="{{ url_for('.contact') }}">get in touch</a>.</p>
+</article>
+{% endblock %}
