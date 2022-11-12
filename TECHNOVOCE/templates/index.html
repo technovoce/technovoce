@@ -1,57 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>{% block title %}Technovoce - Voice Technology: Home {% endblock %}</title>
-        <style>
-            body {
-                font-family: 'Trebuchet', sans-serif;
-            }
-
-            header > div {
-                position: relative; box-sizing: border-box;
-                width: fit-content; height: 10em; 
-                margin: auto; padding-top: 1em; padding-left: 10em; 
-                background-image: url('{{url_for('static', filename='logos/TV-faded.png')}}'); 
-                background-repeat: no-repeat; background-position: top left; background-size: contain;
-                font-size: 24px;
-            }
-
-            header > div > a {
-                display: block;
-                width: 10em; height: 10em;
-                position: absolute; top: 0; left: 0;
-            }
-
-            h1 > em { font-size: 85%; }
-
-            nav { display: block; }
-            nav > ul { list-style: none; }
-            nav > ul > li {
-                display: inline;
-                font-size: 125%;
-                margin: auto 1.5em;
-                color: #700;
-            }
-
-            nav > ul > li > a {
-                color: inherit;
-            }
-
-            main { max-width: 70vw; margin: auto; }
-            section.largefont { font-size: 200%;}
-            section > strong {
-                display: block;
-                margin: 0.5em 1em;
-                width: 100%;
-                text-align: center;
-            }
-        </style>
+        <title>Technovoce: Voice Technology - {% block title %}Home{% endblock %}</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style/index.css') }}">
         {% block headxtns %}{% endblock %}
     </head>
     <body>
         <header>
             <div>
-                <a href="/" title="Technovoce - Voice Technology: Home"></a>
+                <a href="/" title="Technovoce: Voice Technology - Home"></a>
                 <h1>Technovoce: <em>Voice Technology</em></h1>
                 <nav>
                     <ul>
