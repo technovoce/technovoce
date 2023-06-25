@@ -1,0 +1,19 @@
+@media screen and (max-width: 760px) {
+    body {
+        padding-top: 320px;
+    }
+
+    header nav > ul > li {
+        display: block;
+        margin: 0.4em auto;
+    }
+
+    header h1 {
+        margin-bottom: 0;
+    }
+
+    header h1 > em { white-space: pre-line }
+    main > article {
+        line-height: 1.5;
+    }
+}

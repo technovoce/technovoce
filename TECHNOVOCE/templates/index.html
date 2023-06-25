@@ -1,27 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-gb">
     <head>
         <title>Technovoce: Voice Technology - {% block title %}Home{% endblock %}</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='style/index.css') }}">
-        {% block headxtns %}{% endblock %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='style/responsive.css') }}">
+        {% block headxtns %}
+        <script>
+            window.addEventListener("DOMContentLoaded", () => {
+                var carouselhandler = function(e) {
+                    let src = e.target;
+                    let parent = e.currentTarget;
+
+                    if (!src.classList.contains("fade")) return;
+
+                    src.remove();
+                    src.classList.remove("fade");
+                    parent.insertAdjacentElement("afterbegin", src);
+
+                    parent.querySelector("img:last-of-type").classList.add("fade")
+                    
+                }
+
+                document.querySelector("#carousel").addEventListener("transitionend", carouselhandler);
+                
+                var last = document.querySelector("#carousel img:last-of-type");
+
+                last.computedStyleMap().get("opacity"); // required to refresh CSS on page change!
+
+                last.classList.add("fade");
+
+            })
+        </script>
+        {% endblock %}
     </head>
-    <body>
+    <body data-page="{{ page }}">
         <header>
             <div>
                 <a href="/" title="Technovoce: Voice Technology - Home"></a>
-                <h1>Technovoce: <em>Voice Technology</em></h1>
+                <h1>Technovoce <em>
+                    Voice Technology</em></h1>
                 <nav>
                     <ul>
-                        <li><a href="/about">About</a></li>
-                        <li><a href="/services">Services</a></li>
-                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/about.html">Who We Are</a></li>
+                        <li><a href="/services.html">What We Do</a></li>
+                        <li><a href="/contact.html">Get In Touch</a></li>
                     </ul>
                 </nav>
             </div>
         </header>
         <nav></nav>
         <main>
-            {% block maincontent %}{% endblock %}
+            {% block maincontent %}
+            <article>
+                <div id="carousel">
+                    <img src="{{ url_for('static', filename='images/splash4.jpg') }}" title="Mid-show with 'Springsteen on Broadway' at The Central Bar, Gateshead" alt="In a blurry photograph, we look over the heads of a seated audience. Two people stand on stage in front of a star cloth;  the figure on the right is holding a guitar. They are flanked by large PA speakers."/>
+                    <img src="{{ url_for('static', filename='images/splash3.jpg') }}" title="Rigging for a band at The Central Bar, Gateshead" alt="A man kneels betweem a microphone stand and a monitor speaker as he connects one plug of a multicore cable into a DI box." />
+                    <img src="{{ url_for('static', filename='images/splash6.jpg') }}" title="Behind the desk: recording the talks program at the Conference of Research Software Enigneers 2018, Birmingham University" alt="In the foreground, a computer monitor sits just in front of a row of chair backs. Over the chairs,  we can just see a figure at a lectern giving a talk, with their slides projected onto a large screen behind them. The slide title is clearly legible: 'Developing Open Research'" />
+                    <img src="{{ url_for('static', filename='images/splash5.jpg') }}" title="Rigging for a band at The Central Bar, Gateshead" alt="A man stands looking left, frowing in concentration at something we cannot see. In the background, a microhone sits on a stand, purple light shines on a black curtain, and a star cloth is just visible over the man's shoulder." />
+                    <img src="{{ url_for('static', filename='images/splash2.jpg') }}" title="Behind the desk: teching a live show at the Phoenix Theatre, Blyth" alt="In the foreground, a large sound mixing desk with lots of sliders, buttons, knobs and screens.  In the background, a dimly lit stage: several bar stools and a large drum kit are just visible." />
+                </div>
+            </article>
+            {% endblock %}
         </main>
     </body>
 </html>

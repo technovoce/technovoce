@@ -9,18 +9,18 @@ def create_app(test_config=None):
 
     @app.route("/")
     def index():
-        return render_template("index.html")
+        return render_template("index.html", page="index")
 
-    @app.route("/about")
+    @app.route("/about.html")
     def about():
-        return render_template("about.html")
+        return render_template("about.html", page="about")
 
-    @app.route("/services")
+    @app.route("/services.html")
     def services():
-        return render_template("services.html")
+        return render_template("services.html", page="services")
 
-    @app.route("/contact")
+    @app.route("/contact.html")
     def contact():
-        return render_template("contact.html")
+        return render_template("contact.html", page="contact")
 
     return app
